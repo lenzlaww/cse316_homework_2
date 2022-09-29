@@ -82,7 +82,11 @@ export default class SongCard extends React.Component {
         if (this.state.draggedTo) {
             itemClass = "playlister-song-dragged-to";
         }
-        let hyperlink = "https://www.youtube.com/watch?v=" + song.youTubeId;
+        var hyperlink = ""
+        if(song){
+            var hyperlink = "https://www.youtube.com/watch?v=" + song.youTubeId;
+        }
+        
         return (
             
             <div
@@ -99,7 +103,7 @@ export default class SongCard extends React.Component {
                 <span>
                     {num}{". "}
                     <a href={hyperlink} target="_blank">
-                    {song.title} by {song.artist}</a>
+                    {song.title?song.title:null} by {song.artist?song.artist:null}</a>
                     
                 </span>
                 <input

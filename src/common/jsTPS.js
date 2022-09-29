@@ -195,6 +195,8 @@ export default class jsTPS {
         // TOP OF THE TPS STACK TOO
         this.mostRecentTransaction = -1;      
         this.numTransactions = 0; 
+
+        
     }
 
     /**
