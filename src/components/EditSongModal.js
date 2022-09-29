@@ -80,6 +80,7 @@ export default class EditSongModal extends Component {
 
         //     }
         // }
+
         
         return(
             <div class="modal" id="edit-song-modal">
@@ -91,13 +92,13 @@ export default class EditSongModal extends Component {
                     <div class="modal-center-content">
                         <b>
                             <div>Title:<input 
-                                type="text" id="title" 
+                                type="text" id="title" style={{float: "right", fontSize:"16pt", width: "60%"}}
                                 onChange={this.handleTitleChange}></input></div>
                             <div>Artist:<input 
-                                type="text" id="artist" 
+                                type="text" id="artist" style={{float: "right", fontSize:"16pt", width: "60%"}}
                                 onChange={this.handleArtistChange}></input></div>
                             <div>You Tube Id:<input 
-                                type="text" id="youTubeId" 
+                                type="text" id="youTubeId" style={{float: "right", fontSize:"16pt", width: "60%"}}
                                 onChange={this.handleYoutubeIdChange}></input></div>
                         </b>
                     </div>
