@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Tangerine');
+
 :root {
   /* 
         FIRST WE'LL DEFINE OUR SWATCHES, i.e. THE COMPLEMENTARY
@@ -19,7 +21,7 @@ body {
 
 #root {
   background-color: var(--swatch-primary);
-  font-family: serif;
+  font-family: 'Tangerine', serif;
   position: absolute;
   width: 80%;
   left: 10%;
@@ -58,13 +60,14 @@ body {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
   text-align:center;
-  font-size: 36pt;
+  font-size: 24pt;
   font-weight: bold;
   display:flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   background-color: var(--swatch-primary);
+  font-style: italic;
 }
 
 #sidebar-list {
@@ -135,6 +138,11 @@ body {
   font-size:18pt;
 }
 
+.song-card-button{
+  float: right;
+  font-size: 24pt;
+}
+
 .playlister-button, .playlister-button-disabled {
   font-size:36pt;
   border-width: 0px;
@@ -153,11 +161,21 @@ body {
   cursor: not-allowed;
 }
 
+
 .playlister-song, .playlister-song-dragged-to { 
-  display:flex;
+  
   align-items: center;
   font-size: 24pt;
   height:20%;
+  border-radius: 25px;
+  background-color: #e1e4cb;
+  margin: 10px;
+  padding: 20px;
+}
+
+.playlister-song:hover, .playlister-song-dragged-to:hover {
+  background-color: var(--swatch-contrast);
+  color: white;
 }
 
 input {
@@ -182,6 +200,7 @@ input {
   visibility: hidden;
   opacity: 0;
   transition: all 0.35s ease-in;
+  font-family: var(--font-primary);
 }
 
 .modal.is-visible {
@@ -220,7 +239,7 @@ input {
   grid-template-columns: 30% 65%;
   grid-template-rows: 33% 33% 33%;
   gap: 10px 20px;
-  font-size: 48pt;
+  font-size: 30pt;
 }
 
 span {

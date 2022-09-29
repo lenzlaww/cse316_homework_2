@@ -6,8 +6,15 @@ export default class SongCard extends React.Component {
 
         this.state = {
             isDragging: false,
-            draggedTo: false
+            draggedTo: false,
+            editSongActive: false,
         }
+    }
+    //delete song
+    handleDeleteSong = (event) => {
+        event.stopPropagation();
+        let num = this.getItemNum();
+        this.props.deleteSongCallback(num);
     }
     handleDragStart = (event) => {
         event.dataTransfer.setData("song", event.target.id);
@@ -58,6 +65,15 @@ export default class SongCard extends React.Component {
         return this.props.id.substring("playlist-song-".length);
     }
 
+    handleClick = (event) =>{
+        if (event.detail === 2) {
+            let num = this.getItemNum();
+            this.props.editSongCallback(num);
+        }
+    }
+
+
+
     render() {
         const { song } = this.props;
         let num = this.getItemNum();
@@ -66,10 +82,13 @@ export default class SongCard extends React.Component {
         if (this.state.draggedTo) {
             itemClass = "playlister-song-dragged-to";
         }
+        let hyperlink = "https://www.youtube.com/watch?v=" + song.youTubeId;
         return (
+            
             <div
                 id={'song-' + num}
                 className={itemClass}
+                onClick={this.handleClick}
                 onDragStart={this.handleDragStart}
                 onDragOver={this.handleDragOver}
                 onDragEnter={this.handleDragEnter}
@@ -77,7 +96,18 @@ export default class SongCard extends React.Component {
                 onDrop={this.handleDrop}
                 draggable="true"
             >
-                {song.title} by {song.artist}
+                <span>
+                    {num}{". "}
+                    <a href={hyperlink} target="_blank">
+                    {song.title} by {song.artist}</a>
+                    
+                </span>
+                <input
+                        type="button"
+                        id={"delete-song-" + num}
+                        className="song-card-button"
+                        onClick={this.handleDeleteSong}
+                        value={"✕"} />
             </div>
         )
     }
