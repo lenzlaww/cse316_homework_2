@@ -8,6 +8,7 @@ export default class DeleteListModal extends Component {
         if (listKeyPair) {
             name = listKeyPair.name;
         }
+        
         return (
             <div 
                 class="modal" 
